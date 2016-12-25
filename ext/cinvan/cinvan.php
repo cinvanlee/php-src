@@ -18,4 +18,15 @@ if (extension_loaded($module)) {
 	$str = "Module $module is not compiled into PHP";
 }
 echo "$str\n";
+echo PHP_EOL;
+echo cinvan_hello($user);
+echo PHP_EOL;
+
+array_shift($argv);
+$users = $argv;
+foreach ($users as $user) {
+	echo cinvan_hello($user);
+	echo PHP_EOL;
+}
+echo PHP_EOL;
 ?>

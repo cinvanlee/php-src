@@ -1,0 +1,8 @@
+cinvan.lo: /root/workspace/php/ext/cinvan/cinvan.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/root/workspace/php/ext/cinvan $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /root/workspace/php/ext/cinvan/cinvan.c -o cinvan.lo 
+$(phplibdir)/cinvan.la: ./cinvan.la
+	$(LIBTOOL) --mode=install cp ./cinvan.la $(phplibdir)
+
+./cinvan.la: $(shared_objects_cinvan) $(CINVAN_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_cinvan) $(CINVAN_SHARED_LIBADD)
+

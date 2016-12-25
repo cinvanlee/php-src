@@ -40,6 +40,7 @@ static int le_cinvan;
  */
 const zend_function_entry cinvan_functions[] = {
 	PHP_FE(confirm_cinvan_compiled,	NULL)		/* For testing, remove later. */
+	PHP_FE(cinvan_hello, NULL)
 	{NULL, NULL, NULL}	/* Must be the last line in cinvan_functions[] */
 };
 /* }}} */
@@ -171,6 +172,18 @@ PHP_FUNCTION(confirm_cinvan_compiled)
    follow this convention for the convenience of others editing your code.
 */
 
+PHP_FUNCTION(cinvan_hello)
+{
+	char *arg = NULL, *strg;
+	int arg_len, len;
+
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &arg, &arg_len) == FAILURE) {
+		return;
+	}
+
+	len = spprintf(&strg, 0, "Hello %s, I'm Cinvan, come from cinvan module", arg);
+	RETURN_STRINGL(strg, len, 0);
+}
 
 /*
  * Local variables:

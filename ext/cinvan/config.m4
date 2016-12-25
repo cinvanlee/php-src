@@ -13,9 +13,9 @@ dnl [  --with-cinvan             Include cinvan support])
 
 dnl Otherwise use enable:
 
-dnl PHP_ARG_ENABLE(cinvan, whether to enable cinvan support,
+PHP_ARG_ENABLE(cinvan, whether to enable cinvan support,
 dnl Make sure that the comment is aligned:
-dnl [  --enable-cinvan           Enable cinvan support])
+[  --enable-cinvan           Enable cinvan support])
 
 if test "$PHP_CINVAN" != "no"; then
   dnl Write more examples of tests here...

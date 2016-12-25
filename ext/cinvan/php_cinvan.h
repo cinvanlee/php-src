@@ -43,6 +43,7 @@ PHP_RSHUTDOWN_FUNCTION(cinvan);
 PHP_MINFO_FUNCTION(cinvan);
 
 PHP_FUNCTION(confirm_cinvan_compiled);	/* For testing, remove later. */
+PHP_FUNCTION(cinvan_hello);
 
 /* 
   	Declare any global variables you may need between the BEGIN
