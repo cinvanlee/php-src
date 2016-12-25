@@ -32,6 +32,9 @@ echo PHP_EOL;
 
 echo 'create_foobar', PHP_EOL;
 create_foobar();
-echo $foobar;
+echo 'print foobar via echo $foobar, and value is : ', $foobar;
+echo PHP_EOL;
+echo 'print foobar via printfoobar(), and value is : ';
+print_foobar();
 echo PHP_EOL;
 ?>

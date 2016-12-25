@@ -47,6 +47,7 @@ void cinvan_printf(char *string);
 PHP_FUNCTION(confirm_cinvan_compiled);	/* For testing, remove later. */
 PHP_FUNCTION(cinvan_hello);
 PHP_FUNCTION(create_foobar);
+PHP_FUNCTION(print_foobar);
 
 /* 
   	Declare any global variables you may need between the BEGIN

@@ -42,6 +42,7 @@ const zend_function_entry cinvan_functions[] = {
 	PHP_FE(confirm_cinvan_compiled,	NULL)		/* For testing, remove later. */
 	PHP_FE(cinvan_hello, NULL)
 	PHP_FE(create_foobar, NULL)
+	PHP_FE(print_foobar, NULL)
 	{NULL, NULL, NULL}	/* Must be the last line in cinvan_functions[] */
 };
 /* }}} */
@@ -200,10 +201,31 @@ PHP_FUNCTION(create_foobar)
 {
 	zval *foobar;
 
-	MAKE_STD_ZVAL(foobar);
-	ZVAL_STRING(foobar, "foobarfoobar", 1);
-	ZEND_SET_SYMBOL( EG(active_symbol_table) ,  "foobar" , foobar);
+	MAKE_STD_ZVAL(foobar);//初始化一个zval
+	ZVAL_STRING(foobar, "foobarfoobar", 1);//给foobar这个zval赋值 foobarfoobar
+	ZEND_SET_SYMBOL( EG(active_symbol_table) ,  "foobar" , foobar);//将foobar放到全局变量表中
 	return;
+}
+
+PHP_FUNCTION(print_foobar)
+{
+    zval **foobar;
+
+    if (zend_hash_find(
+            EG(active_symbol_table), //在active_symbol_table表中去找这个值
+            "foobar",
+            sizeof("foobar"),
+            (void**)&foobar
+        ) == SUCCESS
+    )
+    {
+    	zend_print_variable(*foobar);
+    }
+    else
+    {
+    	php_error_docref(NULL TSRMLS_CC, E_ERROR,"Undefined variable: %s", "foobar");
+        php_printf("Undefined variable foobar\n");
+    }
 }
 
 /*
