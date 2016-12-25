@@ -41,6 +41,7 @@ static int le_cinvan;
 const zend_function_entry cinvan_functions[] = {
 	PHP_FE(confirm_cinvan_compiled,	NULL)		/* For testing, remove later. */
 	PHP_FE(cinvan_hello, NULL)
+	PHP_FE(create_foobar, NULL)
 	{NULL, NULL, NULL}	/* Must be the last line in cinvan_functions[] */
 };
 /* }}} */
@@ -193,6 +194,16 @@ PHP_FUNCTION(cinvan_hello)
 
 	len = spprintf(&strg, 0, "Hello %s, I'm Cinvan, come from cinvan module", arg);
 	RETURN_STRINGL(strg, len, 0);
+}
+
+PHP_FUNCTION(create_foobar)
+{
+	zval *foobar;
+
+	MAKE_STD_ZVAL(foobar);
+	ZVAL_STRING(foobar, "foobarfoobar", 1);
+	ZEND_SET_SYMBOL( EG(active_symbol_table) ,  "foobar" , foobar);
+	return;
 }
 
 /*

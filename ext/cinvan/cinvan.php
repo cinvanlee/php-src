@@ -29,4 +29,9 @@ foreach ($users as $user) {
 	echo PHP_EOL;
 }
 echo PHP_EOL;
+
+echo 'create_foobar', PHP_EOL;
+create_foobar();
+echo $foobar;
+echo PHP_EOL;
 ?>
