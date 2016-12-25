@@ -5,7 +5,7 @@ if(!extension_loaded('cinvan')) {
 	dl('cinvan.' . PHP_SHLIB_SUFFIX);
 }
 
-goto two;
+goto three;
 
 one:
 
@@ -67,12 +67,24 @@ cinvan_get_refcount('b');
 echo PHP_EOL;
 
 
+three:
 
+$refector = new ReflectionClass('cinvan');
+
+var_dump($refector->getMethods());
 
 echo PHP_EOL;
 
+$cinvan = new cinvan();
+echo $cinvan->hello('test');
 
 
 
 
 
+
+
+
+
+
+echo PHP_EOL;

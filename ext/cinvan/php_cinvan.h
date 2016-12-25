@@ -50,6 +50,10 @@ PHP_FUNCTION(create_foobar);
 PHP_FUNCTION(print_foobar);
 PHP_FUNCTION(cinvan_get_refcount);
 
+
+PHP_METHOD(cinvan, hello);
+PHP_METHOD(cinvan, get_refcount);
+
 /* 
   	Declare any global variables you may need between the BEGIN
 	and END macros here:     

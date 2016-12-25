@@ -34,6 +34,14 @@ ZEND_DECLARE_MODULE_GLOBALS(cinvan)
 /* True global resources - no need for thread safety here */
 static int le_cinvan;
 
+//cinvan 这个类结构
+zend_class_entry *cinvan;
+const zend_function_entry cinvan_methods[] = {
+	PHP_ME(cinvan, hello, NULL, ZEND_ACC_PUBLIC)
+	PHP_ME(cinvan, get_refcount, NULL, ZEND_ACC_PUBLIC)
+	{NULL, NULL, NULL}	/* Must be the last line in cinvan_functions[] */
+};
+
 /* {{{ cinvan_functions[]
  *
  * Every user visible function must have an entry in cinvan_functions[].
@@ -105,6 +113,13 @@ PHP_MINIT_FUNCTION(cinvan)
 	/* If you have INI entries, uncomment these lines 
 	REGISTER_INI_ENTRIES();
 	*/
+	zend_class_entry class_entry;
+
+	//注册"cinvan"类
+	//INIT_CLASS_ENTRY(class_entry, "cinvan", cinvan_functions);//可以直接使用function作为class的全部public方法
+	INIT_CLASS_ENTRY(class_entry, "cinvan", cinvan_methods);
+	cinvan = zend_register_internal_class(&class_entry TSRMLS_CC);
+
 	return SUCCESS;
 }
 /* }}} */
@@ -245,6 +260,40 @@ PHP_FUNCTION(cinvan_get_refcount)
 		Z_ADDREF_PP(z_val);//自动进行增加
 	} else {
         php_printf("Undefined variable %s\n", arg);
+	}
+}
+
+//======================class methods==================================
+
+PHP_METHOD(cinvan, hello)
+{
+	char *arg = NULL, *strg;
+	int arg_len, len;
+
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &arg, &arg_len) == FAILURE) {
+		return;
+	}
+
+	len = spprintf(&strg, 0, "Hello %s, I'm Cinvan, come from cinvan module", arg);
+	RETURN_STRINGL(strg, len, 0);
+}
+
+PHP_METHOD(cinvan, get_refcount)
+{
+	char *arg = NULL;
+	int arg_len;
+	zval **z_val;
+
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &arg, &arg_len) == FAILURE) {
+		return;
+	}
+
+	if (zend_hash_find(EG(active_symbol_table), arg, arg_len+1, (void **)&z_val) == SUCCESS) {
+		php_printf("var %s's refcount__gc is %d", arg, Z_REFCOUNT_PP(z_val));
+
+		Z_ADDREF_PP(z_val);//自动进行增加
+	} else {
+		php_printf("Undefined variable %s\n", arg);
 	}
 }
 
