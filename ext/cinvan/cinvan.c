@@ -43,6 +43,7 @@ const zend_function_entry cinvan_functions[] = {
 	PHP_FE(cinvan_hello, NULL)
 	PHP_FE(create_foobar, NULL)
 	PHP_FE(print_foobar, NULL)
+	PHP_FE(cinvan_get_refcount, NULL)
 	{NULL, NULL, NULL}	/* Must be the last line in cinvan_functions[] */
 };
 /* }}} */
@@ -226,6 +227,25 @@ PHP_FUNCTION(print_foobar)
     	php_error_docref(NULL TSRMLS_CC, E_ERROR,"Undefined variable: %s", "foobar");
         php_printf("Undefined variable foobar\n");
     }
+}
+
+PHP_FUNCTION(cinvan_get_refcount)
+{
+	char *arg = NULL;
+	int arg_len;
+	zval **z_val;
+
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &arg, &arg_len) == FAILURE) {
+		return;
+	}
+
+	if (zend_hash_find(EG(active_symbol_table), arg, arg_len+1, (void **)&z_val) == SUCCESS) {
+		php_printf("var %s's refcount__gc is %d", arg, Z_REFCOUNT_PP(z_val));
+
+		Z_ADDREF_PP(z_val);//自动进行增加
+	} else {
+        php_printf("Undefined variable %s\n", arg);
+	}
 }
 
 /*

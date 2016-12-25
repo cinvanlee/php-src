@@ -4,6 +4,11 @@ $br = (php_sapi_name() == "cli")? "":"<br>";
 if(!extension_loaded('cinvan')) {
 	dl('cinvan.' . PHP_SHLIB_SUFFIX);
 }
+
+goto two;
+
+one:
+
 $module = 'cinvan';
 $functions = get_extension_funcs($module);
 echo "Functions available in the test extension:$br\n";
@@ -37,4 +42,37 @@ echo PHP_EOL;
 echo 'print foobar via printfoobar(), and value is : ';
 print_foobar();
 echo PHP_EOL;
-?>
+
+
+two:
+$a = 'hello';
+$b = $a;
+
+cinvan_get_refcount('a');
+echo PHP_EOL;
+cinvan_get_refcount('b');
+echo PHP_EOL;
+unset($a);
+
+cinvan_get_refcount('a');
+echo PHP_EOL;
+cinvan_get_refcount('b');
+echo PHP_EOL;
+
+$b = $b+1;
+
+cinvan_get_refcount('a');
+echo PHP_EOL;
+cinvan_get_refcount('b');
+echo PHP_EOL;
+
+
+
+
+echo PHP_EOL;
+
+
+
+
+
+
