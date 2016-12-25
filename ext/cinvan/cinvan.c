@@ -90,10 +90,15 @@ static void php_cinvan_init_globals(zend_cinvan_globals *cinvan_globals)
 */
 /* }}} */
 
+void cinvan_printf(char *string){
+	php_printf("this is %s function\n\n", string);
+}
+
 /* {{{ PHP_MINIT_FUNCTION
  */
 PHP_MINIT_FUNCTION(cinvan)
 {
+	cinvan_printf("module init");
 	/* If you have INI entries, uncomment these lines 
 	REGISTER_INI_ENTRIES();
 	*/
@@ -105,6 +110,9 @@ PHP_MINIT_FUNCTION(cinvan)
  */
 PHP_MSHUTDOWN_FUNCTION(cinvan)
 {
+	FILE *fp=fopen("/tmp/cinvan.log","a+");
+	fprintf(fp,"%s\n", "this is module shutdown function");
+	fclose(fp);
 	/* uncomment this line if you have INI entries
 	UNREGISTER_INI_ENTRIES();
 	*/
@@ -117,6 +125,7 @@ PHP_MSHUTDOWN_FUNCTION(cinvan)
  */
 PHP_RINIT_FUNCTION(cinvan)
 {
+	cinvan_printf("request init");
 	return SUCCESS;
 }
 /* }}} */
@@ -126,6 +135,7 @@ PHP_RINIT_FUNCTION(cinvan)
  */
 PHP_RSHUTDOWN_FUNCTION(cinvan)
 {
+	cinvan_printf("request shutdown");
 	return SUCCESS;
 }
 /* }}} */

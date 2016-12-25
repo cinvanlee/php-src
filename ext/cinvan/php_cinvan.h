@@ -42,6 +42,8 @@ PHP_RINIT_FUNCTION(cinvan);
 PHP_RSHUTDOWN_FUNCTION(cinvan);
 PHP_MINFO_FUNCTION(cinvan);
 
+void cinvan_printf(char *string);
+
 PHP_FUNCTION(confirm_cinvan_compiled);	/* For testing, remove later. */
 PHP_FUNCTION(cinvan_hello);
 
