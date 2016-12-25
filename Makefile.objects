@@ -75,9 +75,9 @@ ext/pcre/pcrelib/pcre_xclass.lo: /root/workspace/php/ext/pcre/pcrelib/pcre_xclas
 ext/pcre/php_pcre.lo: /root/workspace/php/ext/pcre/php_pcre.c
 	$(LIBTOOL) --mode=compile $(CC) -I/root/workspace/php/ext/pcre/pcrelib -Iext/pcre/ -I/root/workspace/php/ext/pcre/ $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) -c /root/workspace/php/ext/pcre/php_pcre.c -o ext/pcre/php_pcre.lo 
 ext/sqlite3/sqlite3.lo: /root/workspace/php/ext/sqlite3/sqlite3.c
-	$(LIBTOOL) --mode=compile $(CC) -I/root/workspace/php/ext/sqlite3/libsqlite -DSQLITE_ENABLE_FTS3=1 -DSQLITE_CORE=1 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_THREADSAFE=0  -Iext/sqlite3/ -I/root/workspace/php/ext/sqlite3/ $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) -c /root/workspace/php/ext/sqlite3/sqlite3.c -o ext/sqlite3/sqlite3.lo 
+	$(LIBTOOL) --mode=compile $(CC) -I/root/workspace/php/ext/sqlite3/libsqlite -DSQLITE_ENABLE_FTS3=1 -DSQLITE_CORE=1 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_THREADSAFE=0 -DSQLITE_DEBUG=1 -Iext/sqlite3/ -I/root/workspace/php/ext/sqlite3/ $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) -c /root/workspace/php/ext/sqlite3/sqlite3.c -o ext/sqlite3/sqlite3.lo 
 ext/sqlite3/libsqlite/sqlite3.lo: /root/workspace/php/ext/sqlite3/libsqlite/sqlite3.c
-	$(LIBTOOL) --mode=compile $(CC) -I/root/workspace/php/ext/sqlite3/libsqlite -DSQLITE_ENABLE_FTS3=1 -DSQLITE_CORE=1 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_THREADSAFE=0  -Iext/sqlite3/ -I/root/workspace/php/ext/sqlite3/ $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) -c /root/workspace/php/ext/sqlite3/libsqlite/sqlite3.c -o ext/sqlite3/libsqlite/sqlite3.lo 
+	$(LIBTOOL) --mode=compile $(CC) -I/root/workspace/php/ext/sqlite3/libsqlite -DSQLITE_ENABLE_FTS3=1 -DSQLITE_CORE=1 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_THREADSAFE=0 -DSQLITE_DEBUG=1 -Iext/sqlite3/ -I/root/workspace/php/ext/sqlite3/ $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) -c /root/workspace/php/ext/sqlite3/libsqlite/sqlite3.c -o ext/sqlite3/libsqlite/sqlite3.lo 
 ext/ctype/ctype.lo: /root/workspace/php/ext/ctype/ctype.c
 	$(LIBTOOL) --mode=compile $(CC)  -Iext/ctype/ -I/root/workspace/php/ext/ctype/ $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) -c /root/workspace/php/ext/ctype/ctype.c -o ext/ctype/ctype.lo 
 ext/dom/php_dom.lo: /root/workspace/php/ext/dom/php_dom.c

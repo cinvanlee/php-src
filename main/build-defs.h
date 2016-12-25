@@ -18,7 +18,7 @@
 
 /* $Id: build-defs.h.in 292156 2009-12-15 11:17:47Z jani $ */
 
-#define CONFIGURE_COMMAND " './configure' "
+#define CONFIGURE_COMMAND " './configure'  '--enable-debug'"
 #define PHP_ADA_INCLUDE		""
 #define PHP_ADA_LFLAGS		""
 #define PHP_ADA_LIBS		""
@@ -29,7 +29,7 @@
 #define PHP_FHTTPD_TARGET       ""
 #define PHP_CFLAGS		"$(CFLAGS_CLEAN) -prefer-non-pic -static"
 #define PHP_DBASE_LIB		""
-#define PHP_BUILD_DEBUG		""
+#define PHP_BUILD_DEBUG		" -Wall"
 #define PHP_GDBM_INCLUDE	""
 #define PHP_IBASE_INCLUDE	""
 #define PHP_IBASE_LFLAGS	""
@@ -77,7 +77,7 @@
 #define PHP_BIRDSTEP_LIBS        ""
 #define PEAR_INSTALLDIR         "/usr/local/lib/php"
 #define PHP_INCLUDE_PATH	".:/usr/local/lib/php"
-#define PHP_EXTENSION_DIR       "/usr/local/lib/php/extensions/no-debug-non-zts-20090626"
+#define PHP_EXTENSION_DIR       "/usr/local/lib/php/extensions/debug-non-zts-20090626"
 #define PHP_PREFIX              "/usr/local"
 #define PHP_BINDIR              "/usr/local/bin"
 #define PHP_SBINDIR             "/usr/local/sbin"

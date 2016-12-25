@@ -85,7 +85,7 @@ AR_FLAGS="cru"
 LTCC="gcc"
 
 # LTCC compiler flags.
-LTCFLAGS="-I/usr/include -g -O2 -fvisibility=hidden"
+LTCFLAGS="-I/usr/include -g  -fvisibility=hidden -O0  -Wall"
 
 # A language-specific compiler.
 CC="gcc"

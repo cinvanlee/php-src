@@ -190,13 +190,13 @@ configure:4066: result: /usr/local
 configure:4068: checking for PHP includes
 configure:4070: result: -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib
 configure:4072: checking for PHP extension directory
-configure:4074: result: /usr/local/lib/php/extensions/no-debug-non-zts-20090626
+configure:4074: result: /usr/local/lib/php/extensions/debug-non-zts-20090626
 configure:4076: checking for PHP installed headers prefix
 configure:4078: result: /usr/local/include/php
 configure:4081: checking if debug is enabled
-configure:4107: result: no
+configure:4107: result: yes
 configure:4110: checking if zts is enabled
-configure:4136: result: no
+configure:4136: result: yes
 configure:4210: checking for re2c
 configure:4240: result: no
 configure:4265: WARNING: You will need re2c 0.13.4 or later if you want to regenerate PHP parsers.
@@ -221,54 +221,54 @@ configure:4966: checking whether ln -s works
 configure:4973: result: no, using cp -p
 configure:4977: checking how to recognize dependent libraries
 configure:5163: result: pass_all
-configure:5248: cc -c -g -O2  conftest.c >&5
+configure:5248: cc -c -g  -O0  conftest.c >&5
 configure:5251: $? = 0
 configure:5375: checking for ANSI C header files
-configure:5395: cc -c -g -O2  conftest.c >&5
+configure:5395: cc -c -g  -O0  conftest.c >&5
 configure:5395: $? = 0
-configure:5468: cc -o conftest -g -O2   conftest.c  >&5
+configure:5468: cc -o conftest -g  -O0   conftest.c  >&5
 configure:5468: $? = 0
 configure:5468: ./conftest
 configure:5468: $? = 0
 configure:5479: result: yes
 configure:5492: checking for sys/types.h
-configure:5492: cc -c -g -O2  conftest.c >&5
+configure:5492: cc -c -g  -O0  conftest.c >&5
 configure:5492: $? = 0
 configure:5492: result: yes
 configure:5492: checking for sys/stat.h
-configure:5492: cc -c -g -O2  conftest.c >&5
+configure:5492: cc -c -g  -O0  conftest.c >&5
 configure:5492: $? = 0
 configure:5492: result: yes
 configure:5492: checking for stdlib.h
-configure:5492: cc -c -g -O2  conftest.c >&5
+configure:5492: cc -c -g  -O0  conftest.c >&5
 configure:5492: $? = 0
 configure:5492: result: yes
 configure:5492: checking for string.h
-configure:5492: cc -c -g -O2  conftest.c >&5
+configure:5492: cc -c -g  -O0  conftest.c >&5
 configure:5492: $? = 0
 configure:5492: result: yes
 configure:5492: checking for memory.h
-configure:5492: cc -c -g -O2  conftest.c >&5
+configure:5492: cc -c -g  -O0  conftest.c >&5
 configure:5492: $? = 0
 configure:5492: result: yes
 configure:5492: checking for strings.h
-configure:5492: cc -c -g -O2  conftest.c >&5
+configure:5492: cc -c -g  -O0  conftest.c >&5
 configure:5492: $? = 0
 configure:5492: result: yes
 configure:5492: checking for inttypes.h
-configure:5492: cc -c -g -O2  conftest.c >&5
+configure:5492: cc -c -g  -O0  conftest.c >&5
 configure:5492: $? = 0
 configure:5492: result: yes
 configure:5492: checking for stdint.h
-configure:5492: cc -c -g -O2  conftest.c >&5
+configure:5492: cc -c -g  -O0  conftest.c >&5
 configure:5492: $? = 0
 configure:5492: result: yes
 configure:5492: checking for unistd.h
-configure:5492: cc -c -g -O2  conftest.c >&5
+configure:5492: cc -c -g  -O0  conftest.c >&5
 configure:5492: $? = 0
 configure:5492: result: yes
 configure:5506: checking dlfcn.h usability
-configure:5506: cc -c -g -O2  conftest.c >&5
+configure:5506: cc -c -g  -O0  conftest.c >&5
 configure:5506: $? = 0
 configure:5506: result: yes
 configure:5506: checking dlfcn.h presence
@@ -280,11 +280,11 @@ configure:5506: result: yes
 configure:5528: checking the maximum length of command line arguments
 configure:5640: result: 1572864
 configure:5652: checking command to parse /usr/bin/nm -B output from cc object
-configure:5757: cc -c -g -O2  conftest.c >&5
+configure:5757: cc -c -g  -O0  conftest.c >&5
 configure:5760: $? = 0
 configure:5764: /usr/bin/nm -B conftest.o \| sed -n -e 's/^.*[ 	]\([ABCDGIRSTW][ABCDGIRSTW]*\)[ 	][ 	]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' \> conftest.nm
 configure:5767: $? = 0
-configure:5819: cc -o conftest -g -O2   conftest.c conftstm.o >&5
+configure:5819: cc -o conftest -g  -O0   conftest.c conftstm.o >&5
 configure:5822: $? = 0
 configure:5860: result: ok
 configure:5864: checking for objdir
@@ -299,26 +299,26 @@ configure:6155: checking for strip
 configure:6171: found /usr/bin/strip
 configure:6182: result: strip
 configure:6751: checking if cc supports -fno-rtti -fno-exceptions
-configure:6769: cc -c -g -O2  -fno-rtti -fno-exceptions conftest.c >&5
+configure:6769: cc -c -g  -O0  -fno-rtti -fno-exceptions conftest.c >&5
 cc1: warning: command line option '-fno-rtti' is valid for C++/ObjC++ but not for C [enabled by default]
 configure:6773: $? = 0
 configure:6786: result: no
 configure:6801: checking for cc option to produce PIC
 configure:7041: result: -fPIC
 configure:7049: checking if cc PIC flag -fPIC works
-configure:7067: cc -c -g -O2  -fPIC -DPIC conftest.c >&5
+configure:7067: cc -c -g  -O0  -fPIC -DPIC conftest.c >&5
 configure:7071: $? = 0
 configure:7084: result: yes
 configure:7112: checking if cc static flag -static works
 configure:7140: result: yes
 configure:7150: checking if cc supports -c -o file.o
-configure:7171: cc -c -g -O2  -o out/conftest2.o conftest.c >&5
+configure:7171: cc -c -g  -O0  -o out/conftest2.o conftest.c >&5
 configure:7175: $? = 0
 configure:7197: result: yes
 configure:7223: checking whether the cc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
 configure:8155: result: yes
 configure:8176: checking whether -lc should be explicitly linked in
-configure:8181: cc -c -g -O2  conftest.c >&5
+configure:8181: cc -c -g  -O0  conftest.c >&5
 configure:8184: $? = 0
 configure:8199: cc -shared conftest.o  -v -Wl,-soname -Wl,conftest -o conftest 2\>\&1 \| grep  -lc  \>/dev/null 2\>\&1
 configure:8202: $? = 0
@@ -439,7 +439,7 @@ php_cv_cc_rpath=yes
 AR='ar'
 AWK='nawk'
 CC='cc'
-CFLAGS='-g -O2'
+CFLAGS='-g  -O0'
 CONFIGURE_COMMAND=' '\''./configure'\'' '
 CONFIGURE_OPTIONS=''
 CPP='cc -E'

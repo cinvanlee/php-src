@@ -4,8 +4,8 @@ top_srcdir = /root/workspace/php
 top_builddir = /root/workspace/php
 EGREP = grep -E
 SED = /bin/sed
-CONFIGURE_COMMAND = './configure'
-CONFIGURE_OPTIONS =
+CONFIGURE_COMMAND = './configure' '--enable-debug'
+CONFIGURE_OPTIONS = '--enable-debug'
 PHP_MAJOR_VERSION = 5
 PHP_MINOR_VERSION = 3
 PHP_RELEASE_VERSION = 6
@@ -68,14 +68,14 @@ sysconfdir = ${prefix}/etc
 EXEEXT =
 CC = gcc
 CFLAGS = $(CFLAGS_CLEAN) -prefer-non-pic -static
-CFLAGS_CLEAN = -I/usr/include -g -O2 -fvisibility=hidden
+CFLAGS_CLEAN = -I/usr/include -g -fvisibility=hidden -O0 -Wall
 CPP = gcc -E
 CPPFLAGS =
 CXX =
-CXXFLAGS = -prefer-non-pic -static
-CXXFLAGS_CLEAN =
-DEBUG_CFLAGS =
-EXTENSION_DIR = /usr/local/lib/php/extensions/no-debug-non-zts-20090626
+CXXFLAGS = -g -O0 -prefer-non-pic -static
+CXXFLAGS_CLEAN = -g -O0
+DEBUG_CFLAGS = -Wall
+EXTENSION_DIR = /usr/local/lib/php/extensions/debug-non-zts-20090626
 EXTRA_LDFLAGS = -L/usr/lib/x86_64-linux-gnu
 EXTRA_LDFLAGS_PROGRAM = -L/usr/lib/x86_64-linux-gnu
 EXTRA_LIBS = -lcrypt -lresolv -lcrypt -lrt -lrt -lm -ldl -lnsl -lxml2 -lxml2 -lxml2 -lcrypt -lxml2 -lxml2 -lxml2 -lcrypt
@@ -85,11 +85,11 @@ EXTRA_INCLUDES =
 INCLUDE_PATH = .:/usr/local/lib/php
 INSTALL_IT = @echo "Installing PHP CGI binary: $(INSTALL_ROOT)$(bindir)/"; $(INSTALL) -m 0755 $(SAPI_CGI_PATH) $(INSTALL_ROOT)$(bindir)/$(program_prefix)php-cgi$(program_suffix)$(EXEEXT)
 LFLAGS =
-LIBTOOL = $(SHELL) $(top_builddir)/libtool --silent --preserve-dup-deps
+LIBTOOL = $(SHELL) $(top_builddir)/libtool --preserve-dup-deps
 LN_S = ln
 NATIVE_RPATHS = -Wl,-rpath,/usr/lib/x86_64-linux-gnu
 PEAR_INSTALLDIR = ${exec_prefix}/lib/php
-PHP_BUILD_DATE = 2016-12-17
+PHP_BUILD_DATE = 2016-12-25
 PHP_LDFLAGS = -L/usr/lib/x86_64-linux-gnu
 PHP_LIBS =
 OVERALL_TARGET = $(SAPI_CGI_PATH)
@@ -512,9 +512,9 @@ ext/pcre/pcrelib/pcre_xclass.lo: /root/workspace/php/ext/pcre/pcrelib/pcre_xclas
 ext/pcre/php_pcre.lo: /root/workspace/php/ext/pcre/php_pcre.c
 	$(LIBTOOL) --mode=compile $(CC) -I/root/workspace/php/ext/pcre/pcrelib -Iext/pcre/ -I/root/workspace/php/ext/pcre/ $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) -c /root/workspace/php/ext/pcre/php_pcre.c -o ext/pcre/php_pcre.lo 
 ext/sqlite3/sqlite3.lo: /root/workspace/php/ext/sqlite3/sqlite3.c
-	$(LIBTOOL) --mode=compile $(CC) -I/root/workspace/php/ext/sqlite3/libsqlite -DSQLITE_ENABLE_FTS3=1 -DSQLITE_CORE=1 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_THREADSAFE=0  -Iext/sqlite3/ -I/root/workspace/php/ext/sqlite3/ $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) -c /root/workspace/php/ext/sqlite3/sqlite3.c -o ext/sqlite3/sqlite3.lo 
+	$(LIBTOOL) --mode=compile $(CC) -I/root/workspace/php/ext/sqlite3/libsqlite -DSQLITE_ENABLE_FTS3=1 -DSQLITE_CORE=1 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_THREADSAFE=0 -DSQLITE_DEBUG=1 -Iext/sqlite3/ -I/root/workspace/php/ext/sqlite3/ $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) -c /root/workspace/php/ext/sqlite3/sqlite3.c -o ext/sqlite3/sqlite3.lo 
 ext/sqlite3/libsqlite/sqlite3.lo: /root/workspace/php/ext/sqlite3/libsqlite/sqlite3.c
-	$(LIBTOOL) --mode=compile $(CC) -I/root/workspace/php/ext/sqlite3/libsqlite -DSQLITE_ENABLE_FTS3=1 -DSQLITE_CORE=1 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_THREADSAFE=0  -Iext/sqlite3/ -I/root/workspace/php/ext/sqlite3/ $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) -c /root/workspace/php/ext/sqlite3/libsqlite/sqlite3.c -o ext/sqlite3/libsqlite/sqlite3.lo 
+	$(LIBTOOL) --mode=compile $(CC) -I/root/workspace/php/ext/sqlite3/libsqlite -DSQLITE_ENABLE_FTS3=1 -DSQLITE_CORE=1 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_THREADSAFE=0 -DSQLITE_DEBUG=1 -Iext/sqlite3/ -I/root/workspace/php/ext/sqlite3/ $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) -c /root/workspace/php/ext/sqlite3/libsqlite/sqlite3.c -o ext/sqlite3/libsqlite/sqlite3.lo 
 ext/ctype/ctype.lo: /root/workspace/php/ext/ctype/ctype.c
 	$(LIBTOOL) --mode=compile $(CC)  -Iext/ctype/ -I/root/workspace/php/ext/ctype/ $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) -c /root/workspace/php/ext/ctype/ctype.c -o ext/ctype/ctype.lo 
 ext/dom/php_dom.lo: /root/workspace/php/ext/dom/php_dom.c

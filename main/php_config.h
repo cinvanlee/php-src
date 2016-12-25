@@ -2857,10 +2857,10 @@
 #define ZEND_VM_KIND ZEND_VM_KIND_CALL
 
 /*   */
-#define ZEND_DEBUG 0
+#define ZEND_DEBUG 1
 
 /*   */
-#define ZEND_DEBUG 0
+#define ZEND_DEBUG 1
 
 /*   */
 /* #undef ZTS */
@@ -2899,7 +2899,7 @@
 /* #undef PTHREADS */
 
 /* PHP build date */
-#define PHP_BUILD_DATE "2016-12-17"
+#define PHP_BUILD_DATE "2016-12-25"
 
 /* hardcode for each of the cross compiler host */
 #define PHP_OS "Linux"
