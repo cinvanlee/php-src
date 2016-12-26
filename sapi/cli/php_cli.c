@@ -639,11 +639,7 @@ static int cli_seek_file_begin(zend_file_handle *file_handle, char *script_file,
 
 /* {{{ main
  */
-#ifdef PHP_CLI_WIN32_NO_CONSOLE
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
-#else
 int main(int argc, char *argv[])
-#endif
 {
 	volatile int exit_status = SUCCESS;
 	int c;

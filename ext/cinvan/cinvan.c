@@ -187,7 +187,7 @@ PHP_FUNCTION(confirm_cinvan_compiled)
 	char *strg;
 
 	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &arg, &arg_len) == FAILURE) {
-		return;
+		RETURN_NULL();
 	}
 
 	len = spprintf(&strg, 0, "Congratulations! You have successfully modified ext/%.78s/config.m4. Module %.78s is now compiled into PHP.", "cinvan", arg);
